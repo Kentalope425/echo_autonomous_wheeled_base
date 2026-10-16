@@ -59,7 +59,7 @@ void loop() {
 
   // 3. Map the constrained 200-3800 range into a clean -100 to 100 percentage
   joystickData.x = map(rawX, 200, 3800, -100, 100);
-  joystickData.y = map(rawY, 200, 3800, -100, 100);
+  joystickData.y = map(rawY, 200, 3800, 100, -100);
 
   // Send the cleaned-up percentage data
   esp_now_send(broadcastAddress, (uint8_t *) &joystickData, sizeof(joystickData));
